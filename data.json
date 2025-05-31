@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "titulo": "What Goes Around...Comes Around",
+    "artista": "Justin Timberlake"
+  },
+  {
+    "id": 2,
+    "titulo": "No Woman, No Cry",
+    "artista": "Bob Marley"
+  },
+  {
+    "id": 3,
+    "titulo": "No One",
+    "artista": "Alicia Keys"
+  },
+  {
+    "id": 4,
+    "titulo": "Let Me Blow Ya Mind",
+    "artista": "Eve"
+  },
+  {
+    "id": 5,
+    "titulo": "4 Page Letter",
+    "artista": "Aaliyah"
+  },
+  {
+    "id": 6,
+    "titulo": "Family Affair",
+    "artista": "Mary J. Blige"
+  }
+]
