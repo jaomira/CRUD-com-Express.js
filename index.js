@@ -8,54 +8,54 @@ app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}.`);
 });
 
-// Array para armazenar os itens
-let items = [];
+// Array para armazenar as músicas
+let songs = [];
 
 // Create (criar)
-app.post('/items', (req, res) => {
-  const item = req.body;
-  if (items.some(i => i.id === item.id)) {
-    return res.status(400).json({ error: 'ID já registrado.' });
+app.post('/songs', (req, res) => {
+  const song = req.body;
+  if (songs.some(i => i.id === song.id)) {
+    return res.status(400).json({ error: 'Música já registrada.' });
   }
-  items.push(item);
-  res.status(201).json(item);
+  songs.push(song);
+  res.status(201).json(song);
 });
 
 // Read one (ler um)
-app.get('/items/:id', (req, res) => {
-  const item = items.find(i => i.id == req.params.id);
-  if (item) {
-    res.json(item);
+app.get('/songs/:id', (req, res) => {
+  const song = songs.find(i => i.id == req.params.id);
+  if (song) {
+    res.json(song);
   } else {
-    res.status(404).json({ error: 'Item não encontrado.' });
+    res.status(404).json({ error: 'Música não encontrada.' });
   }
 });
 
 // Read all (ler todos)
-app.get('/items', (req, res) => {
-  res.json(items);
+app.get('/songs', (req, res) => {
+  res.json(songs);
 });
 
 // Update (atualizar)
-app.put('/items/:id', (req, res) => {
+app.put('/songs/:id', (req, res) => {
   const id = req.params.id;
-  const index = items.findIndex(i => i.id == id);
+  const index = songs.findIndex(i => i.id == id);
   if (index !== -1) {
-    items[index] = req.body;
-    res.json(items[index]);
+    songs[index] = req.body;
+    res.json(songs[index]);
   } else {
-    res.status(404).json({ error: 'Item não encontrado.' });
+    res.status(404).json({ error: 'Música não encontrada.' });
   }
 });
 
 // Delete (deletar)
-app.delete('/items/:id', (req, res) => {
+app.delete('/songs/:id', (req, res) => {
   const id = req.params.id;
-  const index = items.findIndex(i => i.id == id);
+  const index = songs.findIndex(i => i.id == id);
   if (index !== -1) {
-    const deleted = items.splice(index, 1);
+    const deleted = songs.splice(index, 1);
     res.json(deleted[0]);
   } else {
-    res.status(404).json({ error: 'Item não encontrado.' });
+    res.status(404).json({ error: 'Música não encontrada.' });
   }
 });
